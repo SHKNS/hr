@@ -105,4 +105,3 @@ win-unicode-console==0.5
 wincertstore==0.2
 wrapt==1.11.2
 xlrd==1.2.0
-xlwings==0.20.8
