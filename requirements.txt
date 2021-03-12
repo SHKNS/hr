@@ -32,7 +32,6 @@ future==0.18.2
 glob2==0.7
 h5py==2.10.0
 HeapDict==1.0.1
-heroku==0.1.4
 heroku3==4.2.3
 imagesize==1.2.0
 itsdangerous==1.1.0
@@ -56,7 +55,6 @@ numba==0.51.2
 numexpr==2.7.1
 olefile==0.46
 packaging==20.4
-parso==0.7.0
 partd==1.1.0
 pathlib2==2.3.5
 pathtools==0.1.2
@@ -94,7 +92,6 @@ tables==3.6.1
 terminado==0.9.1
 testpath==0.4.4
 tifffile==2020.10.1
-tornado==6.0.4
 unicodecsv==0.14.1
 webencodings==0.5.1
 Werkzeug==1.0.1
