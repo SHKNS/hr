@@ -12,4 +12,4 @@ class UnionBoard(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'union_board'
+        db_table = 'new'
