@@ -104,6 +104,7 @@ url = urlparse(
             'mysql://b4fa2e81d494ad:ca78e2e5@us-cdbr-east-03.cleardb.com/heroku_0e26083567187ca?reconnect=true'
             )
         )
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
