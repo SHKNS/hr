@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import dj_database_url
 
+SITE_ID=1
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
