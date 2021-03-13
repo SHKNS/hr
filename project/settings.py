@@ -96,18 +96,26 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 import dj_database_url
+from urllib.parse import urlparse
 
+url = urlparse(
+        os.environ.get(
+            'DATABASE_URL',
+            'mysql://b4fa2e81d494ad:ca78e2e5@us-cdbr-east-03.cleardb.com/heroku_0e26083567187ca?reconnect=true'
+            )
+        )
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'demo',
-        'USER': 'root',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
-        'PORT': '3306',
-        
+        'NAME': url.path[1:],
+        'USER': url.username,
+        'PASSWORD': url.password,
+        'HOST': url.hostname,
+        'PORT': url.port,
     }
 }
+
+
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
