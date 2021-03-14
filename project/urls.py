@@ -21,6 +21,8 @@ from test_app import views
 
 router = routers.DefaultRouter()
 router.register(r'tests', views.TestViewSet)
+router.register(r'auction', views.AuctionViewSet)
+
 
 urlpatterns = [
     path('test_app/', include('test_app.urls')),

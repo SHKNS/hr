@@ -13,3 +13,16 @@ class UnionBoard(models.Model):
     class Meta:
         managed = False
         db_table = 'new'
+        
+class AuctionBoard(models.Model):
+    url = models.CharField(primary_key=True, max_length=190)
+    shop_url = models.CharField(max_length=190, blank=True, null=True)
+    pro_name = models.CharField(max_length=100, blank=True, null=True)
+    price = models.CharField(max_length=100, blank=True, null=True)
+    delivery_fee = models.CharField(max_length=100, blank=True, null=True)
+    date_time = models.DateTimeField(blank=True, null=True)
+    img_path = models.CharField(max_length=100, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'auction_board'

@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import django_heroku
 from pathlib import Path
-import os
+import os, sys
 import dj_database_url
 
 SITE_ID=1
@@ -33,12 +33,12 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 # Application definition
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 
@@ -51,8 +51,24 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'test_app',
-    'myapp'
+    'myapp',
+    'storages'
 ]
+
+
+DEFAULT_FILE_STORAGE = 'postproject.storages.MediaStorage'
+STATICFILES_STORAGE = 'postproject.storages.StaticStorage'
+
+MEDIAFILES_LOCATION = 'media'
+STATICFILES_LOCATION = 'static'
+
+from boto.s3.connection import S3Connection
+
+# s3 = S3Connection(os.environ['S3_KEY'], os.environ['S3_SECRET'])
+AWS_STORAGE_BUCKET_NAME = 'shk-test-bucket'
+AWS_S3_REGION_NAME = "ap-northeast-2"
+AWS_S3_SIGNATURE_VERSION = "s3v4"
+    
 
 # MIDDLEWARE_CLASSES = [
 MIDDLEWARE = [
@@ -69,7 +85,7 @@ MIDDLEWARE = [
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-django_heroku.settings(locals())
+
 
 
 ROOT_URLCONF = 'project.urls'
@@ -117,7 +133,6 @@ DATABASES = {
 }
 
 
-
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
@@ -158,4 +173,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+
+django_heroku.settings(locals())
