@@ -21,7 +21,21 @@ from test_app import views
 
 router = routers.DefaultRouter()
 router.register(r'tests', views.TestViewSet)
+router.register(r'oversee', views.OverseeViewSet)
+
+#######################################################
+
+router.register(r'fm', views.FmViewSet)
+router.register(r'pp', views.PpViewSet)
+router.register(r'cool', views.CoolViewSet)
+router.register(r'ruli', views.RuliViewSet)
+
+#######################################################
+
 router.register(r'auction', views.AuctionViewSet)
+router.register(r'coupang', views.CoupangViewSet)
+router.register(r'eleven', views.ElevenViewSet)
+router.register(r'gmarket', views.GmarketViewSet)
 
 
 urlpatterns = [
