@@ -114,21 +114,15 @@ WSGI_APPLICATION = 'project.wsgi.application'
 import dj_database_url
 from urllib.parse import urlparse
 
-url = urlparse(
-        os.environ.get(
-            'DATABASE_URL',
-            'mysql://b4fa2e81d494ad:ca78e2e5@us-cdbr-east-03.cleardb.com/heroku_0e26083567187ca?reconnect=true'
-            )
-        )
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': url.path[1:],
-        'USER': url.username,
-        'PASSWORD': url.password,
-        'HOST': url.hostname,
-        'PORT': url.port,
+        'NAME': 'shk',
+        'USER': 'admin',
+        'PASSWORD': 'hell1234',
+        'HOST': 'shk-test-db.cswaj7rr1tew.ap-northeast-2.rds.amazonaws.com',
+        'PORT': '3306',
     }
 }
 

@@ -20,7 +20,7 @@ from test_app import views
 
 
 router = routers.DefaultRouter()
-router.register(r'tests', views.TestViewSet)
+router.register(r'union', views.TestViewSet)
 router.register(r'oversee', views.OverseeViewSet)
 
 #######################################################
